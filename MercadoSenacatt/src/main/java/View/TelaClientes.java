@@ -504,6 +504,45 @@ Color minhacor = new Color(255, 255, 255);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
+        
+         if(txtNomeCliente.getText().equals("")){
+                   JOptionPane.showMessageDialog(this, "O nome do cliente precisa ser preenchido");
+            return; }
+            else if(txtCpf.getText().equals("   .   .   -  ")){
+                 JOptionPane.showMessageDialog(this, "O CPF do cliente precisa ser preenchida");
+                         return;
+            }
+            else if(txtTelefone.getText().equals("(  )       -    ")){
+                 JOptionPane.showMessageDialog(this, "O telefone do cliente precisa ser preenchido");
+                         return;
+                         
+            } else if(txtEmail.getText().equals("")){
+                 JOptionPane.showMessageDialog(this, "O E-mail do cliente precisa ser preenchido");
+                 return;
+            }
+           
+                try {
+        if(!txtNumeroCasa.getText().equals("")){
+        int retornoNum = Integer.parseInt(txtNumeroCasa.getText());}
+        
+            } catch (NumberFormatException a) {
+
+        JOptionPane.showMessageDialog(this, "Digite apenas números no campo numero do enredeço");
+        return;
+        
+    } finally{
+     this.txtNumeroCasa.setText("");
+ }
+        String nomeCliente = txtNomeCliente.getText();
+       String cpf = txtCpf.getText();
+       String telefone = txtTelefone.getText();
+       
+       DefaultTableModel tabelaCliente = (DefaultTableModel) tblListaClientes.getModel();
+       Object[] novoCliente = new Object[]{
+           nomeCliente,
+           cpf,
+          telefone
+       };
         if(tblListaClientes.getSelectedRow() != 1){
            Cliente c = new Cliente();
         ClienteDAO dao = new ClienteDAO();
@@ -528,6 +567,44 @@ Color minhacor = new Color(255, 255, 255);
 
     private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
 
+         if(txtNomeCliente.getText().equals("")){
+                   JOptionPane.showMessageDialog(this, "O nome do cliente precisa ser preenchido");
+            return; }
+            else if(txtCpf.getText().equals("   .   .   -  ")){
+                 JOptionPane.showMessageDialog(this, "O CPF do cliente precisa ser preenchida");
+                         return;
+            }
+            else if(txtTelefone.getText().equals("(  )       -    ")){
+                 JOptionPane.showMessageDialog(this, "O telefone do cliente precisa ser preenchido");
+                         return;
+                         
+            } else if(txtEmail.getText().equals("")){
+                 JOptionPane.showMessageDialog(this, "O E-mail do cliente precisa ser preenchido");
+                 return;
+            }
+           
+                try {
+        if(!txtNumeroCasa.getText().equals("")){
+        int retornoNum = Integer.parseInt(txtNumeroCasa.getText());}
+        
+            } catch (NumberFormatException a) {
+
+        JOptionPane.showMessageDialog(this, "Digite apenas números no campo numero do enredeço");
+        return;
+        
+    } finally{
+     this.txtNumeroCasa.setText("");
+ }
+        String nomeCliente = txtNomeCliente.getText();
+       String cpf = txtCpf.getText();
+       String telefone = txtTelefone.getText();
+       
+       DefaultTableModel tabelaCliente = (DefaultTableModel) tblListaClientes.getModel();
+       Object[] novoCliente = new Object[]{
+           nomeCliente,
+           cpf,
+          telefone
+       };
            Cliente c = new Cliente();
         ClienteDAO dao = new ClienteDAO();
 
