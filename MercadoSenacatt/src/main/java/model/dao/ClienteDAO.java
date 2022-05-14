@@ -64,7 +64,7 @@ public class ClienteDAO {
         List<Cliente> clientes = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cliente");
+            stmt = con.prepareStatement("SELECT * FROM Cliente");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -138,7 +138,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE cliente SET nome_cliente = ?, cpf = ?,data_nascimento = ?,"
+            stmt = con.prepareStatement("UPDATE Cliente SET nome_cliente = ?, cpf = ?,data_nascimento = ?,"
                     + " estado_civil = ?, sexo = ?, cep =?, rua = ?, numero_endereco =?, numero_telefone =?, email = ?  WHERE id_cliente = ?");
            stmt.setString(1, p.getNomeCliente());
            stmt.setString(2, p.getCPF());
@@ -169,7 +169,8 @@ public class ClienteDAO {
         PreparedStatement sql = null;
         
         try {
-            sql = con.prepareStatement("DELETE FROM cliente WHERE id_cliente=?");
+            sql = con.prepareStatement("DELETE FROM Cliente"
+                    + " WHERE id_cliente=?");
              sql.setInt(1, p.getId());
         
              sql.executeUpdate();
