@@ -43,6 +43,7 @@ public class TelaCaixa extends javax.swing.JFrame {
         btnAdicionarProduto = new javax.swing.JButton();
         btnExcluirProduto = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         btnFinalizarCompra = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -132,15 +133,28 @@ public class TelaCaixa extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 71, 141));
 
+        jButton2.setText("Voltar ao menu");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 62, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         btnFinalizarCompra.setBackground(new java.awt.Color(247, 138, 30));
@@ -246,6 +260,12 @@ public class TelaCaixa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,6 +306,7 @@ public class TelaCaixa extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnFinalizarCompra;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
