@@ -1,0 +1,51 @@
+@options
+@packages
+-classpath
+'/Users/beatrizlira/.m2/repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar:/Users/beatrizlira/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'/Users/beatrizlira/projetoIntegrador/projetoIntegrador/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'projetoIntegrador 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'projetoIntegrador 1.0-SNAPSHOT API'
+connection
+dao
+model
+view
+/Users/beatrizlira/.m2/repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar = 1651010937063
+/Users/beatrizlira/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar = 1651010937363
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/src/main/java = 1652631007188
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/tag-search-index.js = 1653157016671
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/overview-tree.html = 1653157016663
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/module-search-index.js = 1653157016670
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/index.html = 1653157016664
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/package-search-index.js = 1653157016670
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/jquery-ui.overrides.css = 1653157016683
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/serialized-form.html = 1653157016650
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/index-all.html = 1653157016676
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/allpackages-index.html = 1653157016670
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/member-search-index.js = 1653157016671
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/script.js = 1653157016679
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/stylesheet.css = 1653157016679
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/overview-summary.html = 1653157016676
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/help-doc.html = 1653157016678
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/element-list = 1653157016620
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/allclasses-index.html = 1653157016669
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/type-search-index.js = 1653157016670
+/Users/beatrizlira/projetoIntegrador/projetoIntegrador/target/apidocs/search.js = 1653157016680
