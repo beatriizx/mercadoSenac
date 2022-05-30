@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -82,11 +83,13 @@ public class VendasDAO {
             
             //2 passo - criar o sql, organizar e executar
             String sql = "select v.id , date_format(v.data_venda,'%d/%m/%y') as data_formatada , c.nome , v.total_venda from tb_vendas as v  "
-                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente)where v.data_venda between? and?";
+                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente)where v.data_venda  BETWEEN curdate() AND DATE_SUB(curdate(), INTERVAL 30 DAY)";
+            
             
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, data_inicio.toString());
             stmt.setString(2, data_fim.toString());
+            
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){

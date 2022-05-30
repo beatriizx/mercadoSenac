@@ -256,9 +256,22 @@ public class FuncionarioDAO {
 
                 if(rs.next()){
                     //usuario logado
-                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema");
+                    //se o usuario for admin
+                    if(rs.getString("nivel_acesso").equals("ADMIN")){
+                          JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema");
                     telaMenu menu = new telaMenu();
                     menu.setVisible(true);
+                    } 
+                    //Caso o usuario seja limitado
+                    else if(rs.getString("nivel_acesso").equals("USUARIOS")){
+                        JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema");
+                        telaMenu menu = new telaMenu();
+                        menu.setVisible(true);
+                        
+                        menu.menuRelatorio.setVisible(false);
+                        
+                    }
+                  
                     
               
                 } else{

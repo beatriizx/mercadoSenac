@@ -21,7 +21,7 @@ import model.Vendas;
  * @author erick
  */
 public class TelaPagamentos extends javax.swing.JFrame {
-
+int cliente_id;
     Clientes cliente = new Clientes();
     DefaultTableModel carrinho;
     
