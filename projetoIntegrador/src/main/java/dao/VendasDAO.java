@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class VendasDAO {
             stmt.close();
 
           
+        }catch(SQLIntegrityConstraintViolationException erro){
+            JOptionPane.showMessageDialog(null , "Produto já cadastrado");
         } catch (Exception erro) {
 
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
@@ -83,7 +86,7 @@ public class VendasDAO {
             
             //2 passo - criar o sql, organizar e executar
             String sql = "select v.id , date_format(v.data_venda,'%d/%m/%y') as data_formatada , c.nome , v.total_venda from tb_vendas as v  "
-                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente)where v.data_venda  BETWEEN curdate() AND DATE_SUB(curdate(), INTERVAL 30 DAY)";
+                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente)where v.data_venda  BETWEEN? and?";;
             
             
             PreparedStatement stmt = con.prepareStatement(sql);

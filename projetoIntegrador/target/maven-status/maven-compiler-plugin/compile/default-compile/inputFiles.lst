@@ -1,23 +1,24 @@
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/TelaClientes.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/TelaProdutos.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/RelatorioAnalitico.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/dao/ClienteDAO.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/ItemVenda.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/Funcionarios.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/dao/ProdutosDAO.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/Utilitarios.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/Clientes.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/telaFuncionarios.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/dao/VendasDAO.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/telaMenu.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/dao/ItemVendaDAO.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/dao/FuncionarioDAO.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/TelaPagamentos.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/Produtos.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/connection/ConnectionFactory.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/TelaVendas.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/TotalVendasPorData.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/telaLogin.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/connection/TestaConexao.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/model/Vendas.java
-/Users/beatrizlira/Desktop/mercadoSenac-main 2/projetoIntegrador/src/main/java/view/RelatorioSintetico.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/Vendas.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/Funcionarios.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaRelatorios.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaTotalVendasPorData.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/dao/ItemVendaDAO.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaLogin.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/TelaProdutos.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/TelaClientes.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/Clientes.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/TelaPagamentos.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaMenu2.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/TelaVendas.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaMenu.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/dao/ProdutosDAO.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/Utilitarios.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/Produtos.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/connection/TestaConexao.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/model/ItemVenda.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/dao/VendasDAO.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaRelatorioAnalitico.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/dao/ClienteDAO.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/connection/ConnectionFactory.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/dao/FuncionarioDAO.java
+/Users/beatrizlira/Desktop/mercadoSenacGit/projetoIntegrador/src/main/java/view/telaFuncionarios.java

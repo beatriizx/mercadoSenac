@@ -24,6 +24,7 @@ import model.Utilitarios;
  * @author beatrizlira
  */
 public class TelaVendas extends javax.swing.JFrame {
+    Produtos p = new Produtos();
     double total,preco,subtotal;
     int qtd;
     Clientes obj = new Clientes();
@@ -64,7 +65,7 @@ Color minhacor = new Color(255, 255, 255);
         txtDataAtual = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaItens = new javax.swing.JTable();
+        tblItens = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -76,11 +77,11 @@ Color minhacor = new Color(255, 255, 255);
         txtQtd = new javax.swing.JTextField();
         btnBuscaProduto = new javax.swing.JButton();
         btnAdicionarItem = new javax.swing.JButton();
+        btnCancelarVenda = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         btnPagamento = new javax.swing.JButton();
-        btnCancelarVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -239,7 +240,7 @@ Color minhacor = new Color(255, 255, 255);
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Carinho de compras"));
 
-        TabelaItens.setModel(new javax.swing.table.DefaultTableModel(
+        tblItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -247,7 +248,7 @@ Color minhacor = new Color(255, 255, 255);
                 "Código", "Produto", "Qtd", "Preço", "Subtoal"
             }
         ));
-        jScrollPane1.setViewportView(TabelaItens);
+        jScrollPane1.setViewportView(tblItens);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -321,37 +322,55 @@ Color minhacor = new Color(255, 255, 255);
             }
         });
 
+        btnCancelarVenda.setText("DELETAR ITEM");
+        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarVendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtQtd))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescricao))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDescricao))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCodigo)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCodigo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(btnAdicionarItem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAdicionarItem)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel16)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtQtd)
+                                .addGap(172, 172, 172))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(btnCancelarVenda)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
+
+        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdicionarItem, btnCancelarVenda});
+
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -371,9 +390,13 @@ Color minhacor = new Color(255, 255, 255);
                     .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
+
+        jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarItem, btnCancelarVenda});
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Total da Venda"));
@@ -412,13 +435,6 @@ Color minhacor = new Color(255, 255, 255);
             }
         });
 
-        btnCancelarVenda.setText("CANCELAR VENDA");
-        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarVendaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -442,15 +458,10 @@ Color minhacor = new Color(255, 255, 255);
                                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap())))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelarVenda, btnPagamento});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -468,15 +479,11 @@ Color minhacor = new Color(255, 255, 255);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(btnPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCancelarVenda, btnPagamento});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -522,19 +529,31 @@ Color minhacor = new Color(255, 255, 255);
 
     private void btnBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdutoActionPerformed
       
-            Produtos obj = new Produtos();
+            
             ProdutosDAO dao = new ProdutosDAO();
             
-            obj = dao.consultaPorCodigo(Integer.parseInt(txtCodigo.getText()));
+            p = dao.consultaPorCodigo(Integer.parseInt(txtCodigo.getText()));
             
-            txtDescricao.setText(obj.getDescricao());
-            txtPreco.setText(String.valueOf(obj.getPreco()));
+            txtDescricao.setText(p.getDescricao());
+            txtPreco.setText(String.valueOf(p.getPreco()));
     }//GEN-LAST:event_btnBuscaProdutoActionPerformed
 
     private void btnAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItemActionPerformed
         // botao add item
+         if(txtQtd.getText().equals("")){
+                   JOptionPane.showMessageDialog(this, "A quantidade do produto precisa ser preenchida");
+            return;
+         }
         qtd = Integer.parseInt(txtQtd.getText());
         preco = Double.parseDouble(txtPreco.getText());
+        
+       int estoqueAtual = p.getQtd_estoque();
+        
+       if(qtd > estoqueAtual){
+           JOptionPane.showMessageDialog(null, "Quantidade inserida é maior do que a em estoque");
+           return;
+       }
+       
         
         subtotal = qtd * preco;
         
@@ -543,7 +562,7 @@ Color minhacor = new Color(255, 255, 255);
         
         //Adicionar o produto no carrinho
         
-        carrinho = (DefaultTableModel)TabelaItens.getModel();
+        carrinho = (DefaultTableModel)tblItens.getModel();
         
         carrinho.addRow(new Object[]{
         txtCodigo.getText(),
@@ -556,6 +575,10 @@ Color minhacor = new Color(255, 255, 255);
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         // botão pagamento
+       if(txtNome.getText().equals("") || txtCpf.getText().equals("")){
+           JOptionPane.showMessageDialog(null, "Um cliente deve ser associado a essa venda");
+           return;
+       } 
         TelaPagamentos telap = new TelaPagamentos();
         telap.txtTotal.setText(String.valueOf(total));
         
@@ -567,7 +590,7 @@ Color minhacor = new Color(255, 255, 255);
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
     private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
-        // TODO add your handling code here:
+        excluirProduto();
     }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
@@ -599,13 +622,13 @@ Color minhacor = new Color(255, 255, 255);
     private void txtCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyPressed
         //busca produto por codigo
         if (evt.getKeyCode()== KeyEvent.VK_ENTER){
-            Produtos obj = new Produtos();
+            
             ProdutosDAO dao = new ProdutosDAO();
             
-            obj = dao.consultaPorCodigo(Integer.parseInt(txtCodigo.getText()));
+            p = dao.consultaPorCodigo(Integer.parseInt(txtCodigo.getText()));
             
-            txtDescricao.setText(obj.getDescricao());
-            txtPreco.setText(String.valueOf(obj.getPreco()));
+            txtDescricao.setText(p.getDescricao());
+            txtPreco.setText(String.valueOf(p.getPreco()));
         }
     }//GEN-LAST:event_txtCodigoKeyPressed
 
@@ -660,9 +683,21 @@ Color minhacor = new Color(255, 255, 255);
             }
         });
     }
+     public void excluirProduto(){
+         int linhaSelecionada = tblItens.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum item selecionado, tente novamente");
+            
+            
+        } else{
+             DefaultTableModel tabelaProduto = (DefaultTableModel) tblItens.getModel();
+             tabelaProduto.removeRow(linhaSelecionada);
+              JOptionPane.showMessageDialog(this, "Produto Excluido");
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelaItens;
     private javax.swing.JButton btnAdicionarItem;
     private javax.swing.JButton btnBuscaProduto;
     private javax.swing.JButton btnBuscarCliente;
@@ -686,6 +721,7 @@ Color minhacor = new Color(255, 255, 255);
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblItens;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtDataAtual;

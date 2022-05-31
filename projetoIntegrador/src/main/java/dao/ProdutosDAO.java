@@ -8,6 +8,7 @@ import connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -39,12 +40,12 @@ public class ProdutosDAO {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso");
-        } catch (Exception erro) {
-
+            
+        } catch(SQLIntegrityConstraintViolationException erro){
+            JOptionPane.showMessageDialog(null , "Produto já cadastrado");
+        }catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
         }
-
     }
     
     public void alterarProdutos(Produtos obj){
