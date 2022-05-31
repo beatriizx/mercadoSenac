@@ -16,7 +16,7 @@ public class ConnectionFactory {
     public Connection getConnection(){
         try {
              Class.forName(DRIVER);
-           return DriverManager.getConnection("jdbc:mysql://localhost:3306/projeto_integrador?allowPublicKeyRetrieval=true&useSSL=false", "mercadosenac", "123");
+           return DriverManager.getConnection("jdbc:mysql://localhost:3306/projeto_integrador?allowPublicKeyRetrieval=true&useSSL=false", "projeto_integrador", "123");
         } catch (Exception erro) {
             throw new RuntimeException(erro);
         }

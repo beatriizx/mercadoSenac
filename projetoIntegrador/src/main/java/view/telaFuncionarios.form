@@ -39,8 +39,8 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnEditar" linkSize="5" min="-2" pref="187" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnExcluir" linkSize="5" min="-2" pref="187" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="btnExcluir" min="-2" pref="177" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -205,8 +205,8 @@
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="544" max="-2" attributes="0"/>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="433" max="-2" attributes="0"/>
+                          <EmptySpace pref="130" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1046,7 +1046,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1e" green="8a" red="f7" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Inserir Novo cliente"/>
+        <Property name="text" type="java.lang.String" value="Inserir Funcionario"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInserirActionPerformed"/>
@@ -1057,7 +1057,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1e" green="8a" red="f7" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Editar Cliente"/>
+        <Property name="text" type="java.lang.String" value="Editar Funcionario"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
@@ -1068,7 +1068,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1e" green="8a" red="f7" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Excluir Cliente"/>
+        <Property name="text" type="java.lang.String" value="Excluir Funcion&#xe1;rio"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>

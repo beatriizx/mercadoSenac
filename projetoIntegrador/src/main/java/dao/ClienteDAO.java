@@ -28,7 +28,10 @@ public class ClienteDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    //Metodo cadastrarCliente
+    /**
+     * Método que inclui novos clientes no banco de dados.
+     * @param obj - obj do tipo Cliente.
+     */
     public void cadastrarCliente(Clientes obj){
         //1 passo = criar o comando sql
         try {
@@ -66,7 +69,10 @@ public class ClienteDAO {
         } 
     }
     
-     //Metodo alterarCliente
+     /** 
+     * Método que altera(atualiza) as informações de clientes cadastrados.
+     * @param obj - objeto do tipo Cliente.
+     */
     public void alterarCliente(Clientes obj){
          //1 passo = criar o comando sql
         try {
@@ -100,7 +106,10 @@ public class ClienteDAO {
         }
     }
     
-     //Metodo excluirCliente
+   /**
+     * Método que remove um cliente da base de dados.
+     * @param obj - do tipo Cliente.
+     */
     public void excluirCliente(Clientes obj){
          //1 passo = criar o comando sql
         try {
@@ -118,7 +127,10 @@ public class ClienteDAO {
         }
     }
     
-    // Método listar clientes
+   /**
+     * Método que trás a lista de clientes.
+     * @return List - informações do Cliente.
+     */
     public List<Clientes> listarClientes() {
         try {
             //1 passo - Criar a lista
@@ -157,7 +169,11 @@ public class ClienteDAO {
         return null;
     }
     
-    // Método listar clientes
+  /**
+     * Método que retorna uma busca de cliente pelo nome.
+     * @param nome - Nome ds clientes cadastrados.
+     * @return String - Cliente especifico.
+     */
     public List<Clientes> buscaClientePorNome(String nome) {
         try {
             //1 passo - Criar a lista
@@ -196,7 +212,11 @@ public class ClienteDAO {
         return null;
     }
     
-    //Metodo consultaCliente Por Cpf
+    /**
+     * Método que consulta Clientes pelo CPF.
+     * @param cpf String - indentifica clientes. 
+     * @return obj - Informações do cliente cadastrado.
+     */
     public Clientes consultaPorCPF(String cpf){
         try {
               String sql = "select * from tb_clientes where cpf = ?";

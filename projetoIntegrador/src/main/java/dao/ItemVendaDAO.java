@@ -29,7 +29,10 @@ public class ItemVendaDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    //Metodo que cadastra itens
+   /**
+     * Método que inclui novos itens.
+     * @param obj - objeto do tipo ItemVenda.
+     */
     
     public void cadastraItem(ItemVenda obj){
          try {
@@ -52,7 +55,11 @@ public class ItemVendaDAO {
         }
     }
     
-    //metodo que lista Itens de uma venda por id
+   /**
+     * Método que lista os itens de uma venda por id
+     * @param venda_id int - id dos itens cadastrados
+     * @return lista - lista de itensVenda
+     */
     
     public List<ItemVenda> listarItensPorVenda(int venda_id) {
         try {

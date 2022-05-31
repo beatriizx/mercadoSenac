@@ -3,7 +3,6 @@ view/telaLogin$2.class
 view/TelaVendas$11.class
 view/telaFuncionarios$7.class
 view/telaFuncionarios.class
-view/TelaProdutos$16.class
 view/TelaProdutos$2.class
 view/telaFuncionarios$4.class
 view/telaFuncionarios$14.class
@@ -11,7 +10,6 @@ view/TelaVendas$1.class
 view/telaFuncionarios$21.class
 view/telaFuncionarios$11.class
 view/telaTotalVendasPorData$5.class
-view/telaMenu2$2.class
 view/TelaClientes$17.class
 view/TelaProdutos$13.class
 view/telaRelatorios$7.class
@@ -36,7 +34,6 @@ view/telaTotalVendasPorData$3.class
 view/TelaPagamentos.class
 view/TelaProdutos$11.class
 view/TelaClientes$18.class
-view/telaRelatorioAnalitico.class
 view/TelaClientes$8.class
 view/TelaPagamentos$7.class
 view/telaMenu$2.class
@@ -57,9 +54,7 @@ view/TelaClientes$7.class
 view/telaFuncionarios$20.class
 view/telaTotalVendasPorData$2.class
 view/telaRelatorios$2.class
-view/telaMenu2$1.class
 view/TelaClientes$11.class
-view/telaRelatorioAnalitico$1.class
 view/telaRelatorios$9.class
 view/TelaVendas$14.class
 view/TelaPagamentos$6.class
@@ -81,7 +76,6 @@ view/TelaVendas$15.class
 view/TelaPagamentos$2.class
 view/TelaPagamentos$5.class
 view/TelaProdutos$6.class
-view/telaRelatorioAnalitico$2.class
 view/telaFuncionarios$8.class
 view/TelaVendas$12.class
 model/Vendas.class
@@ -132,7 +126,6 @@ view/telaFuncionarios$18.class
 view/telaTotalVendasPorData$6.class
 view/TelaProdutos$5.class
 dao/VendasDAO.class
-view/telaMenu2.class
 view/TelaVendas$8.class
 view/TelaClientes$4.class
 view/telaLogin$1.class

@@ -28,6 +28,11 @@ public class FuncionarioDAO {
     public FuncionarioDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
+    
+    /**
+     * Método que inclui novos funcionarios no banco.
+     * @param obj - objeto do tipo Funcionario.
+     */
      public void cadastrarFuncionario(Funcionarios obj){
         //1 passo = criar o comando sql
         try {
@@ -70,7 +75,12 @@ public class FuncionarioDAO {
              JOptionPane.showMessageDialog(null , "Erro" + e);
         } 
     } 
-       
+     
+     
+     /**
+        * Método que altera(atualiza) as informações de funcionarios cadastrados.
+        * @param obj - objeto do tipo Funcionario.
+        */
      public void alterarFuncionario(Funcionarios obj){
          //1 passo = criar o comando sql
         try {
@@ -106,7 +116,10 @@ public class FuncionarioDAO {
         }
     }
      
-      //Metodo excluirCliente
+    /**
+      * Método que remove um funcionario da base de dados.
+      * @param obj - objeto do tipo Funcionario.
+      */
     public void excluirFuncionario(Funcionarios obj){
          //1 passo = criar o comando sql
         try {
@@ -124,6 +137,11 @@ public class FuncionarioDAO {
         }
     }
      
+    /**
+      * Método que busca funcionario pelo nome.
+      * @param nome String - nome dos Funcionarios cadastrados.
+      * @return String - Funcionario especificio.
+      */
         public List<Funcionarios> buscaFuncionarioPorNome(String nome) {
         try {
             //1 passo - Criar a lista
@@ -165,7 +183,10 @@ public class FuncionarioDAO {
         return null;
     }
         
-            // Método listar clientes
+    /**
+         * Método que lista todos os funcionarios.
+         * @return List - informações do funcionario.
+         */
     public List<Funcionarios> listarFuncionarios() {
         try {
             //1 passo - Criar a lista
@@ -207,6 +228,11 @@ public class FuncionarioDAO {
         return null;
     }
     
+    /**
+     * Método que consulta funcionarios pelo CPF.
+     * @param cpf String - identifica funcionarios.
+     * @return obj - informações do Funcionario cadastrado.
+     */
         public Funcionarios consultaPorCPF(String cpf){
         try {
               String sql = "select * from tb_funcionarios where cpf = ?";
@@ -245,6 +271,11 @@ public class FuncionarioDAO {
         return null;
         }
         
+      /**
+         * Método que faz login no sistema
+         * @param  email String- recebe email de acesso do funcionario.
+         * @param senha String- recebe senha de acesso do funcionario.
+         */
           public void logar(String email, String senha){
 
             try {

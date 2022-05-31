@@ -26,7 +26,11 @@ public class ProdutosDAO {
         this.con = new ConnectionFactory().getConnection();
 
     }
-    //metodo Cadastaras Produtos
+    
+   /**
+ * Método inclui novos produtos ao banco.
+ * @param obj - objeto do tipo Produto.
+ */
 
     public void cadastrarProduto(Produtos obj) {
         try {
@@ -38,6 +42,7 @@ public class ProdutosDAO {
             stmt.setInt(3, obj.getQtd_estoque());
 
             stmt.execute();
+            JOptionPane.showMessageDialog(null , "produto cadastrado com sucesso");
             stmt.close();
 
             
@@ -48,6 +53,10 @@ public class ProdutosDAO {
         }
     }
     
+    /**
+     * Método que altera(atualiza) produtos já cadastrados.
+     * @param obj - objeto do tipo Produtos.
+     */
     public void alterarProdutos(Produtos obj){
          //1 passo = criar o comando sql
         try {
@@ -68,7 +77,10 @@ public class ProdutosDAO {
         }
     }
     
-   
+    /**
+    * Método que remove produtos do banco de dados.
+    * @param obj - objeto do tipo Produtos.
+    */
     public void excluirProduto(Produtos obj){
          //1 passo = criar o comando sql
         try {
@@ -86,6 +98,10 @@ public class ProdutosDAO {
         }
     }
     
+    /**
+     * Método que trás todos os produtos cadastrados.
+     * @return lista - lista de produtos.
+     */
      public List<Produtos> listarProduto() {
         try {
             //1 passo - Criar a lista
@@ -114,6 +130,12 @@ public class ProdutosDAO {
         }
         return null;
     }
+     
+     /**
+      * Método que busca produtos pelo nome usando o operador LIKE
+      * @param nome String - nome dos produtos cadastrados.
+      * @return lista - Produtos que tem nome parecido ou unico com suas informações .
+      */
      public List<Produtos> listarProdutoPorNome(String nome) {
         try {
             //1 passo - Criar a lista
@@ -142,6 +164,12 @@ public class ProdutosDAO {
         }
         return null;
     }
+     
+     /**
+      * Método que busca produtos por nome.
+      * @param nome String - nome dos produtos cadastrados.
+      * @return obg - retorna o produto pelo nome e suas informações.
+      */
      public Produtos consultaPorNome(String nome) {
         try {
             //1 passo - Criar a lista
@@ -171,6 +199,12 @@ public class ProdutosDAO {
         }
         
     }
+     
+     /**
+      * Método que busca produtos por id.
+      * @param id Int - identificador dos produtos cadastrados.
+      * @return obj - retorna produtos buscando pelo seu número identificador.
+      */
      public Produtos consultaPorCodigo(int id) {
         try {
             //1 passo - Criar a lista
@@ -201,7 +235,11 @@ public class ProdutosDAO {
         }
         
     }
-     //Metodo que da baixa no estoque
+    /**
+      * Método que retira produtos do estoque pós finalização de venda.
+      * @param id Int - indentifica produtos do estoque.
+      * @param qtd_nova Int - realiza atualização no estoque da quantidade de produtos.
+      */
      
      public void baixaEstoque(int id, int qtd_nova){
          try{
@@ -220,6 +258,12 @@ public class ProdutosDAO {
          
    }
      
+     
+     /**
+      * Método que atualiza o estoque de produtos.
+      * @param id Int - Identificador dos produtos.
+      * @param qtd_nova Int -  Identificador de produtos que serão adicionados no estoque.
+      */
           public void adicionarEstoque(int id, int qtd_nova){
          try{
          String sql = "update tb_produtos set qtd_estoque = ? where id = ?";
@@ -237,7 +281,11 @@ public class ProdutosDAO {
          
    }
      
-     //metodo que rerotna o estoque atual de um produto
+    /**
+      * Método que busca um produto pelo id e retorna a quantidade dele no estoque.
+      * @param id Int - Identificador dos produtos no estoque.
+      * @return qtd_estoque Int - retorna o estoque atual de um produto.
+      */
      
      public int retornaEstoqueAtual(int id){
          try {

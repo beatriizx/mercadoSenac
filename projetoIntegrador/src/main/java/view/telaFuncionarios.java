@@ -240,8 +240,8 @@ Color minhacor = new Color(255, 255, 255);
                     .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ConsultaLayout = new javax.swing.GroupLayout(Consulta);
@@ -713,7 +713,7 @@ Color minhacor = new Color(255, 255, 255);
         );
 
         btnInserir.setBackground(new java.awt.Color(247, 138, 30));
-        btnInserir.setText("Inserir Novo cliente");
+        btnInserir.setText("Inserir Funcionario");
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -721,7 +721,7 @@ Color minhacor = new Color(255, 255, 255);
         });
 
         btnEditar.setBackground(new java.awt.Color(247, 138, 30));
-        btnEditar.setText("Editar Cliente");
+        btnEditar.setText("Editar Funcionario");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -729,7 +729,7 @@ Color minhacor = new Color(255, 255, 255);
         });
 
         btnExcluir.setBackground(new java.awt.Color(247, 138, 30));
-        btnExcluir.setText("Excluir Cliente");
+        btnExcluir.setText("Excluir Funcionário");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -753,8 +753,8 @@ Color minhacor = new Color(255, 255, 255);
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -762,7 +762,7 @@ Color minhacor = new Color(255, 255, 255);
                         .addContainerGap())))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEditar, btnExcluir, btnInserir});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEditar, btnInserir});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -822,7 +822,11 @@ Color minhacor = new Color(255, 255, 255);
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
 //botao salvar
-
+   
+     if(verificarNulos() == false){
+         return;
+     };
+     
      Funcionarios obj = new Funcionarios();
      obj.setNome(txtNomeFuncionario.getText());
      obj.setCPF(txtCpf.getText());
@@ -880,6 +884,10 @@ Color minhacor = new Color(255, 255, 255);
         txtCargo.setText(tblFuncionarios.getValueAt(tblFuncionarios.getSelectedRow(), 15).toString());
         txtSenha.setText(tblFuncionarios.getValueAt(tblFuncionarios.getSelectedRow(), 17).toString());
         
+        txtNomeFuncionario.setEditable(false);
+        txtCpf.setEditable(false);
+        txtSenha.setEditable(false);
+        txtEmail.setEditable(false);
     }//GEN-LAST:event_tblFuncionariosMouseClicked
 
     private void tblFuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblFuncionariosKeyReleased
@@ -931,7 +939,11 @@ Color minhacor = new Color(255, 255, 255);
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-             Funcionarios obj = new Funcionarios();
+          int linhaSelecionada = tblFuncionarios.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum funcionario selecionado, tente novamente");
+        } else{
+        Funcionarios obj = new Funcionarios();
      obj.setId(Integer.parseInt(txtId.getText()));
      FuncionarioDAO dao = new FuncionarioDAO();
      dao.excluirFuncionario(obj);
@@ -939,6 +951,7 @@ Color minhacor = new Color(255, 255, 255);
      new Utilitarios().LimpaTela(pnlEndereco);
      new Utilitarios().LimpaTela(pnlContato);
      new Utilitarios().LimpaTela(Usuario);
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -1087,6 +1100,52 @@ Color minhacor = new Color(255, 255, 255);
             }
         });
     }
+    public boolean verificarNulos(){
+           if(txtNomeFuncionario.getText().equals("")){
+                   JOptionPane.showMessageDialog(this, "O nome do cliente precisa ser preenchido");
+            return false; }
+            else if(txtCpf.getText().equals("   .   .   -  ")){
+                 JOptionPane.showMessageDialog(this, "O CPF do cliente precisa ser preenchida");
+                         return false;
+            }
+            else if(txtTelefone.getText().equals("(  )       -    ")){
+                 JOptionPane.showMessageDialog(this, "O telefone do cliente precisa ser preenchido");
+                         return false;
+            } else if(txtEmail.getText().equals("")){
+                 JOptionPane.showMessageDialog(this, "O E-mail do cliente precisa ser preenchido");
+                 return false;
+            } else if(txtNumeroCasa.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "O Numero da casa deve ser preenchido");
+                return false;
+            } else if(txtEndereco.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "O endereço deve ser preenchido");
+                return false;
+            } else if(txtBairro.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "O bairro deve ser preenchido");
+                return false;
+            } else if(txtCep.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "O CEP deve ser preenchido");
+                
+               return false;
+            } else if(txtSenha.getText().equals("")){
+                 JOptionPane.showMessageDialog(this, "A senha deve ser preenchida");
+            }
+           
+                try {
+        if(!txtNumeroCasa.getText().equals("")){
+        int retornoNum = Integer.parseInt(txtNumeroCasa.getText());}
+        
+            } catch (NumberFormatException a) {
+
+        JOptionPane.showMessageDialog(this, "Digite apenas números no campo numero do enredeço");
+        return false;
+        
+    } finally{
+     this.txtNumeroCasa.setText("");
+ }
+                return true;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cadastro;

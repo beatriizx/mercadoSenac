@@ -6,6 +6,7 @@ package dao;
 
 import connection.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,12 +30,14 @@ public class VendasDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    //Cadastrar Venda
+    /**
+     * //Método que registra novas vendas.
+     * @param obj - objeto do tipo Vendas.
+     */
     
     public void cadastrarVenda(Vendas obj){
         try {
              String sql = "insert into tb_vendas(cliente_id,data_venda,total_venda) values (?,?,?)";
-
             PreparedStatement stmt = con.prepareStatement(sql);
             
             stmt.setInt(1, obj.getCliente().getId());
@@ -42,9 +45,9 @@ public class VendasDAO {
             stmt.setDouble(3, obj.getTotal_venda());
             
 
+            
             stmt.execute();
             stmt.close();
-
           
         }catch(SQLIntegrityConstraintViolationException erro){
             JOptionPane.showMessageDialog(null , "Produto já cadastrado");
@@ -54,6 +57,10 @@ public class VendasDAO {
         }
     }
     
+    /**
+     * Método que retorna o id da ultima venda realizada.
+     * @return idVenda - id da venda.
+     */
     public int retornaUltimaVenda(){
         try {
             int idVenda = 0;
@@ -77,21 +84,31 @@ public class VendasDAO {
         }
     }
     
-    //metodo que filtra vendas por data
+   /**
+     * Método que filtra vendas por data
+     * @param data_inicio LocalDate - data inicial da busca
+     * @param data_fim LocalDate- data final da busca
+     * @return lista - lista com vendas realizadas no periodo buscado
+     */
     
-     public List<Vendas> listarVendasPorPeriodo(LocalDate data_inicio,LocalDate data_fim) {
+     public List<Vendas> listarVendasPorPeriodo(LocalDate data_inicio) {
         try {
             //1 passo - Criar a lista
             List<Vendas> lista = new ArrayList<>();
             
+            
             //2 passo - criar o sql, organizar e executar
             String sql = "select v.id , date_format(v.data_venda,'%d/%m/%y') as data_formatada , c.nome , v.total_venda from tb_vendas as v  "
-                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente)where v.data_venda  BETWEEN? and?";;
+                    + " inner join tb_clientes as c on(v.cliente_id = c.id_cliente) where v.data_venda between ? and date_add(?, interval 30 day)" ;
             
             
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, data_inicio.toString());
-            stmt.setString(2, data_fim.toString());
+            Date date = java.sql.Date.valueOf(data_inicio);
+            
+//            Date datefim = java.sql.Date.valueOf(data_fim);
+            stmt.setDate(1, date);
+            stmt.setDate(2, date);
+            
             
             ResultSet rs = stmt.executeQuery();
             
@@ -114,6 +131,12 @@ public class VendasDAO {
         }
         return null;
     }
+     
+     /**
+      * Método que retorna o total das vendas por data,
+      * @param data_venda - data da venda.
+      * @return totalvenda Double - exibe valor total da venda.
+      */
      public double retornaTotalVendaPorData(LocalDate data_venda){
          try {
              double totalvenda = 0;

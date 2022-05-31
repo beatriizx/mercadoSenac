@@ -39,7 +39,7 @@ public class telaRelatorios extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,8 +47,6 @@ public class telaRelatorios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtDataInicio = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtDataFim = new javax.swing.JFormattedTextField();
         btnBuscarCpf = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -64,7 +62,7 @@ public class telaRelatorios extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         dataVenda = new javax.swing.JFormattedTextField();
-        btnBuscarCpf1 = new javax.swing.JButton();
+        btnBuscarVP = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         totalVenda = new javax.swing.JTextField();
 
@@ -81,31 +79,31 @@ public class telaRelatorios extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 71, 141));
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 32)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Relatorio Sintetico");
+        jLabel2.setText("Relatórios");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addGap(135, 135, 135))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 71, 141));
 
-        jButton2.setText("VOLTAR AO MENU");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("VOLTAR AO MENU");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -115,14 +113,14 @@ public class telaRelatorios extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jButton2)
+                .addComponent(btnVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -158,16 +156,6 @@ public class telaRelatorios extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Data Fim:");
-
-        txtDataFim.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        try {
-            txtDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         btnBuscarCpf.setText("Pesquisar");
         btnBuscarCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,13 +172,9 @@ public class telaRelatorios extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(txtDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
                 .addComponent(btnBuscarCpf)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(501, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,8 +183,6 @@ public class telaRelatorios extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
                     .addComponent(btnBuscarCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
@@ -240,8 +222,10 @@ public class telaRelatorios extends javax.swing.JFrame {
         jLabel9.setText("Data:");
 
         txtCliente.setEditable(false);
+        txtCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtTotalVenda.setEditable(false);
+        txtTotalVenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtDataVenda.setEditable(false);
         txtDataVenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -344,10 +328,10 @@ public class telaRelatorios extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarCpf1.setText("Consultar");
-        btnBuscarCpf1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarVP.setText("Consultar");
+        btnBuscarVP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarCpf1ActionPerformed(evt);
+                btnBuscarVPActionPerformed(evt);
             }
         });
 
@@ -375,7 +359,7 @@ public class telaRelatorios extends javax.swing.JFrame {
                     .addComponent(dataVenda)
                     .addComponent(totalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscarCpf1)
+                .addComponent(btnBuscarVP)
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -385,7 +369,7 @@ public class telaRelatorios extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(btnBuscarCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarVP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -419,11 +403,11 @@ public class telaRelatorios extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -447,10 +431,11 @@ public class telaRelatorios extends javax.swing.JFrame {
              DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         LocalDate data_inicio = LocalDate.parse(txtDataInicio.getText(),formato);
-        LocalDate data_fim = LocalDate.parse(txtDataFim.getText(),formato);
+        
+//        LocalDate data_fim = LocalDate.parse(txtDataFim.getText(),formato);
         
         VendasDAO dao = new VendasDAO();
-        List<Vendas> lista = dao.listarVendasPorPeriodo(data_inicio, data_fim);
+        List<Vendas> lista = dao.listarVendasPorPeriodo(data_inicio);
      
         DefaultTableModel dados = (DefaultTableModel) tabelaRelatorioSintetico.getModel();
         dados.setNumRows(0);
@@ -510,12 +495,12 @@ public class telaRelatorios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         telaMenu menu = new telaMenu();
         menu.setVisible(true);
         this.dispose();
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void txtDataVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataVendaActionPerformed
         // TODO add your handling code here:
@@ -525,7 +510,7 @@ public class telaRelatorios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dataVendaActionPerformed
 
-    private void btnBuscarCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCpf1ActionPerformed
+    private void btnBuscarVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVPActionPerformed
         //buscar cliente por cpf
         try {
             DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -540,7 +525,7 @@ public class telaRelatorios extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Informe uma data corretamente" + e);
         }
-    }//GEN-LAST:event_btnBuscarCpf1ActionPerformed
+    }//GEN-LAST:event_btnBuscarVPActionPerformed
 
     private void totalVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalVendaActionPerformed
         // TODO add your handling code here:
@@ -590,14 +575,13 @@ public class telaRelatorios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCpf;
-    private javax.swing.JButton btnBuscarCpf1;
+    private javax.swing.JButton btnBuscarVP;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField dataVenda;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -616,7 +600,6 @@ public class telaRelatorios extends javax.swing.JFrame {
     private javax.swing.JTable tabelaRelatorioSintetico;
     private javax.swing.JTextField totalVenda;
     public javax.swing.JTextField txtCliente;
-    private javax.swing.JFormattedTextField txtDataFim;
     private javax.swing.JFormattedTextField txtDataInicio;
     public javax.swing.JFormattedTextField txtDataVenda;
     public javax.swing.JTextField txtTotalVenda;

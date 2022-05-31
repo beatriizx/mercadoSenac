@@ -149,6 +149,10 @@ public class Clientes {
    
     public Clientes() {
     }
+    
+    public boolean persistir(){
+        return true;
+    }
 
    
   

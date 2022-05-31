@@ -5,6 +5,7 @@
 package view;
 
 import com.mysql.cj.util.StringUtils;
+
 import dao.ClienteDAO;
 import java.awt.Color;
 import java.util.List;
@@ -20,6 +21,7 @@ import model.Utilitarios;
  */
 public class TelaClientes extends javax.swing.JFrame {
 
+ 
     //Metodo Listar na tabela
     public void listar(){
         ClienteDAO dao = new ClienteDAO();
@@ -142,10 +144,10 @@ Color minhacor = new Color(255, 255, 255);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(456, 456, 456)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(515, 515, 515))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,16 +257,14 @@ Color minhacor = new Color(255, 255, 255);
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosPessoaisLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosPessoaisLayout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addGap(79, 79, 79))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosPessoaisLayout.createSequentialGroup()
-                                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(4, 4, 4)))
                             .addComponent(comboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addGap(38, 38, 38))))
+                            .addComponent(jLabel17)
+                            .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38))
+                    .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel19)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlDadosPessoaisLayout.setVerticalGroup(
             pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,7 +577,7 @@ Color minhacor = new Color(255, 255, 255);
                 .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2)
@@ -591,9 +591,9 @@ Color minhacor = new Color(255, 255, 255);
                     .addComponent(btnPesquisar)
                     .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ConsultaLayout = new javax.swing.GroupLayout(Consulta);
@@ -753,10 +753,11 @@ Color minhacor = new Color(255, 255, 255);
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
-        verificarNulos();
-        if(verificarNulos() == false){
-            return;
-        }
+       
+     if(verificarNulos() == false){
+         return;
+     };
+
 
      Clientes obj = new Clientes();
      obj.setNome(txtNomeCliente.getText());
@@ -804,6 +805,8 @@ Color minhacor = new Color(255, 255, 255);
         txtComplemento.setText(tblClientes.getValueAt(tblClientes.getSelectedRow(), 11).toString());
         txtBairro.setText(tblClientes.getValueAt(tblClientes.getSelectedRow(), 12).toString());
         txtCidade.setText(tblClientes.getValueAt(tblClientes.getSelectedRow(), 13).toString());
+         txtNomeCliente.setEditable(false);
+         txtCpf.setEditable(false);
         
     }//GEN-LAST:event_tblClientesMouseClicked
 
@@ -852,17 +855,28 @@ Color minhacor = new Color(255, 255, 255);
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
-             Clientes obj = new Clientes();
+            int linhaSelecionada = tblClientes.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum cliente selecionado, tente novamente");
+        } else{
+             
+        Clientes obj = new Clientes();
      obj.setId(Integer.parseInt(txtId.getText()));
      ClienteDAO dao = new ClienteDAO();
      dao.excluirCliente(obj);
      new Utilitarios().LimpaTela(pnlDadosPessoais);
      new Utilitarios().LimpaTela(pnlEndereco);
      new Utilitarios().LimpaTela(pnlContato);
+        }
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnEditarCliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCliente3ActionPerformed
-                  Clientes obj = new Clientes();
+               int linhaSelecionada = tblClientes.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum cliente selecionado, tente novamente");
+            
+        } else{
+        Clientes obj = new Clientes();
      obj.setNome(txtNomeCliente.getText());
      obj.setCPF(txtCpf.getText());
      obj.setSexo(comboSexo.getSelectedItem().toString());
@@ -879,17 +893,12 @@ Color minhacor = new Color(255, 255, 255);
      obj.setEstado(jComboBox1.getSelectedItem().toString());
      obj.setId(Integer.parseInt(txtId.getText()));
     
-  
-    
-    
-    
-     
      ClienteDAO dao = new ClienteDAO();
      dao.alterarCliente(obj);
      new Utilitarios().LimpaTela(pnlDadosPessoais);
      new Utilitarios().LimpaTela(pnlEndereco);
      new Utilitarios().LimpaTela(pnlContato);
-     
+        }
     }//GEN-LAST:event_btnEditarCliente3ActionPerformed
 
     private void txtNumeroCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCasaActionPerformed

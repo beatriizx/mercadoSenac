@@ -275,7 +275,9 @@ int cliente_id;
         
           JOptionPane.showMessageDialog(null, "Venda Registrada com Sucesso");
         
-        
+        this.dispose();
+        TelaVendas v = new TelaVendas();
+        v.setVisible(true);
         
     }//GEN-LAST:event_btnFinalizarVendasActionPerformed
 

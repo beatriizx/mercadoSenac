@@ -95,7 +95,6 @@ Color minhacor = new Color(255, 255, 255);
         txtDescricao = new javax.swing.JTextField();
         txtPreco = new javax.swing.JTextField();
         txtQtdEstoque = new javax.swing.JTextField();
-        btnPesquisar1 = new javax.swing.JButton();
         btnInserirCliente = new javax.swing.JButton();
         btnEditarCliente2 = new javax.swing.JButton();
         btnEditarCliente3 = new javax.swing.JButton();
@@ -184,13 +183,6 @@ Color minhacor = new Color(255, 255, 255);
 
         txtQtdEstoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnPesquisar1.setText("Pesquisar");
-        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisar1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -212,12 +204,10 @@ Color minhacor = new Color(255, 255, 255);
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtQtdEstoque)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(203, 203, 203))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43))
+                        .addGap(527, 527, 527))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,15 +219,14 @@ Color minhacor = new Color(255, 255, 255);
                 .addGap(32, 32, 32)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar1))
-                .addGap(41, 41, 41)
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtQtdEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCodigo, txtDescricao, txtPreco, txtQtdEstoque});
@@ -363,13 +352,10 @@ Color minhacor = new Color(255, 255, 255);
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                            .addComponent(btnPesquisar)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -653,6 +639,10 @@ Color minhacor = new Color(255, 255, 255);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnEditarCliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCliente3ActionPerformed
+           int linhaSelecionada = tblProdutos.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum produto selecionado, tente novamente");
+        } else{
         Produtos obj = new Produtos();
         
         obj.setId(Integer.parseInt(txtCodigo.getText()));
@@ -662,22 +652,28 @@ Color minhacor = new Color(255, 255, 255);
         
         ProdutosDAO dao = new ProdutosDAO();
         dao.alterarProdutos(obj);
-        util.LimpaTela(Cadastro);
+        util.LimpaTela(jPanel6);
+        }
     }//GEN-LAST:event_btnEditarCliente3ActionPerformed
 
     private void btnEditarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCliente2ActionPerformed
+   int linhaSelecionada = tblProdutos.getSelectedRow();
+        if(linhaSelecionada == -1){
+            JOptionPane.showMessageDialog(this, "Nenhum produto selecionado, tente novamente");
+        } else{
         Produtos obj = new Produtos();
         obj.setId(Integer.parseInt(txtCodigo.getText()));
         
         ProdutosDAO dao = new ProdutosDAO();
         dao.excluirProduto(obj);
-       util.LimpaTela(Cadastro);
+       util.LimpaTela(jPanel6);
+        }
         
     }//GEN-LAST:event_btnEditarCliente2ActionPerformed
 
     private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
         //botao salvar
-        verificarNulos();
+        
         if(verificarNulos() == false){
            return;
         }
@@ -689,27 +685,9 @@ Color minhacor = new Color(255, 255, 255);
         
         ProdutosDAO dao = new ProdutosDAO();
         dao.cadastrarProduto(obj);
-        util.LimpaTela(Cadastro);
+        util.LimpaTela(jPanel6);
         
     }//GEN-LAST:event_btnInserirClienteActionPerformed
-
-    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
-     String nome = txtDescricao.getText();
-     Produtos obj = new Produtos();
-     ProdutosDAO dao = new ProdutosDAO();
-     
-     obj = dao.consultaPorNome(nome);
-             
-        if (obj.getDescricao()!= null) {
-            
-            txtCodigo.setText(String.valueOf(obj.getId()));
-            txtDescricao.setText(obj.getDescricao());
-            txtPreco.setText(String.valueOf(obj.getPreco()));
-            txtQtdEstoque.setText(String.valueOf(obj.getQtd_estoque()));
-        }else{
-            JOptionPane.showMessageDialog(null, "Produto não encontrado");
-        }
-    }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
     private void tblProdutos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutos1MouseClicked
         idproduto = Integer.parseInt(tblProdutos1.getValueAt(tblProdutos1.getSelectedRow(), 0).toString());
@@ -720,7 +698,7 @@ Color minhacor = new Color(255, 255, 255);
 
     private void btnPesquisar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar2ActionPerformed
 
-        String nome = "%" + txtDescricao.getText() + "%";
+        String nome = "%" + txtDescricao1.getText() + "%";
 
         ProdutosDAO dao = new ProdutosDAO();
         List<Produtos> lista = dao.listarProdutoPorNome(nome);
@@ -760,6 +738,7 @@ Color minhacor = new Color(255, 255, 255);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a quantidade a ser adicionada");
         }
+        util.LimpaTela(jPanel3);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
       
@@ -830,7 +809,6 @@ Color minhacor = new Color(255, 255, 255);
     private javax.swing.JButton btnEditarCliente3;
     private javax.swing.JButton btnInserirCliente;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton btnPesquisar1;
     private javax.swing.JButton btnPesquisar2;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
